@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url("profile.jpg");
+            background-size:cover;
+            transition: 1s;
+        }
+    </style>
+</head>
+<body>
+   
+   <script>
+window.onload=function(){
+  var request=new XMLHttpRequest();
+  request.open("POST","profile.jpg",true);
+  request.responseType="blob";
+  request.send();
+
+  request.onload =function(){
+ var url= URL.createObjectURL(request.response);
+ document.querySelector("body").style.backgroundImage="url(+url+)";
+ document.querySelector("body").style.backgroundSize("cover");
+  }
+}
+
+   </script> 
+</body>
+</html>
